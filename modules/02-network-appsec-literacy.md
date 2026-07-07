@@ -24,7 +24,9 @@ By the end of this module, a learner should be able to:
 6. Filter network traffic to isolate API calls (Fetch/XHR) from static asset loads
 7. Identify an API request's payload and response, and reason about what data is being transmitted
 8. Evaluate whether a web application is following the secure pattern of keeping API keys server-side, by inspecting outbound browser requests for exposed credentials
-9. Apply this workflow to a real, self-built project rather than a hypothetical example
+9. Verify a "silent success" from a live third-party data feed (e.g., a function that returns "no problem found") against an independent ground-truth source, rather than assuming a quiet result is a correct one
+10. Reason about live data as time-varying — recognize that a state observed during debugging (e.g., an active outage) may no longer hold by the time a fix ships, and that this must be accounted for rather than treated as a static test fixture
+11. Apply this workflow to a real, self-built project rather than a hypothetical example
 
 ## Lab 1: Reading the Waterfall (Static Site Warm-Up)
 
@@ -84,7 +86,29 @@ By the end of this module, a learner should be able to:
 - How is this fundamentally the same mechanism as loading an image, just carrying structured data instead?
 - What does the Method tell you about the intent of the request (reading vs. writing data)?
 
-## Lab 4 (Capstone): Audit Your Own Project for Exposed Secrets
+## Lab 4: Verifying a Live Data Feed — When "No Problem Found" Might Mean "Broken"
+
+**Goal:** Learn to distinguish a correct negative result from a silently broken one, using a real feature that consumes a live third-party data feed.
+
+Many features are built to detect a *bad* condition and stay quiet otherwise: a fraud check that finds nothing suspicious, a monitoring script that reports all-clear, a status banner that only appears during an outage. These are the hardest bugs to catch, because "nothing happened" looks identical whether the code is working or silently failing. This lab uses a real example: a neighborhood outage-status banner that calls a utility company's public outage map (a tile-based API, e.g. KUBRA — the vendor many US utilities use to power their outage maps) and shows a banner only when the learner's neighborhood falls inside an active outage polygon.
+
+**Steps:**
+
+1. Open DevTools → **Network** tab → filter to **Fetch/XHR** (or **Img**, since map tiles are often requested as image-like assets even though they encode structured/vector data).
+2. Trigger the feature (e.g., load the page with the status banner). Identify the outbound request(s) to the third-party map/tile service.
+3. Inspect the request URL. Tile-based map APIs typically encode a coordinate system in the URL or query params (e.g., x/y/z tile indices, or a bounding box) — identify what geographic area a given request is actually asking about.
+4. Confirm the response comes back 200 and contains data (even if that data is "no active outage here"). A 200 with an *empty* result is a completely different situation from a request that errors, times out, or never fires at all — but all three can produce the same "no banner shown" outcome in the UI. Learn to tell them apart in the Network tab before trusting the UI.
+5. **Cross-verify against ground truth.** Independently open the utility's own public-facing outage map (not through your app) and visually confirm whether your target area currently shows an outage. Only if this matches your app's result can you call the function "correct" — a quiet UI is not, by itself, evidence of anything.
+6. **Account for time.** If your target area *did* show an outage earlier (e.g., during initial testing or in an old screenshot) but shows clear now, don't assume something broke — the underlying condition may have simply resolved. Re-run your ground-truth check at the current moment rather than trusting a stale observation.
+
+**Discussion prompts:**
+
+- Why is a feature that reports "everything is fine" fundamentally harder to test than one that reports an error?
+- What are three different failure modes that could all produce the same "no banner" UI result, and how would the Network tab distinguish between them?
+- This app depends on a live external system it doesn't control. What does that imply about how much you can trust a single observation, versus needing to check again later?
+- How is a tile-based geospatial API (coordinates encoded in the URL, area-based results) similar to and different from the JSON request/response pattern from Lab 3?
+
+## Lab 5 (Capstone): Audit Your Own Project for Exposed Secrets
 
 **Goal:** Apply everything above to answer a real security question about a real, self-built application: *is my API key exposed to the browser?*
 
@@ -121,6 +145,8 @@ This lab is most effective when run against a project the learner actually built
 - I can explain what a TLS certificate chain verifies and identify a CA in a real cert
 - I can isolate API/XHR traffic from static asset traffic using DevTools filters
 - I can identify a request's payload and response body
+- I can distinguish an empty-but-successful response from a failed, timed-out, or never-fired request, even when the visible UI result looks the same
+- I can independently verify a "no problem found" result against an external ground-truth source rather than trusting the UI alone
 - I can determine, for a real deployed app, whether an API key or auth token is exposed client-side
 - I can explain the fix (move the call server-side) if a secret is found exposed
 
@@ -130,4 +156,5 @@ This lab is most effective when run against a project the learner actually built
 - Consider pairing this module with a short primer on CORS, since Sec-Fetch-Site/cross-site headers came up naturally in the live session and are a common point of confusion
 - Consider a follow-on module on the **Application** tab (localStorage/sessionStorage/cookies) — flagged as a natural next step but not yet built out
 - Consider tying this into the policy framework deliverable: "why should organizations onboarding transitioning veterans into tech roles care about this kind of literacy" as a bridge between the curriculum and capstone policy argument
-- Source session used for this draft: navy2010.com (static site warm-up) + sleddawg-fitness (capstone API/secrets audit)
+- Consider a follow-on module/lab on polling and refresh intervals (how often a live feed like an outage map actually updates, and what that implies for how "fresh" a quiet result really is) — flagged by Lab 4's live-data timing discussion but not yet built out
+- Source session used for this draft: navy2010.com (static site warm-up) + sleddawg-fitness (capstone API/secrets audit) + windsor-swan (Lab 4, live outage-feed verification, July 2026)
