@@ -45,6 +45,27 @@ Think of a serverless app as five kinds of thing. The product names change per v
 | **Access policy** | Declarative rules deciding what a *browser* may read/write **directly** | `firestore.rules`, `storage.rules` | Row-Level Security (RLS) policies |
 | **Identity** | Who the caller is, proven by a token the other pieces can check | Firebase Auth (+ custom claims) | Supabase Auth (JWT) |
 
+Here's how the pieces connect:
+
+```mermaid
+flowchart TB
+  browser["<b>Visitor's browser</b><br/>runs your JavaScript —<br/>untrusted"]
+  host["<b>Frontend host</b><br/>GitHub Pages — serves files only"]
+  identity["<b>Identity</b><br/>Firebase Auth / Supabase Auth"]
+  fn["<b>Backend function</b><br/>trusted code, holds secrets"]
+  policy{"<b>Access policy</b><br/>rules / RLS"}
+  db[("<b>Database</b><br/>records")]
+  files[("<b>File store</b><br/>images, PDFs")]
+  browser -- "downloads the site" --> host
+  browser -- "signs in, gets a token" --> identity
+  browser -- "direct read / write<br/>(with token)" --> policy
+  policy --> db
+  policy --> files
+  browser -- "calls (with token)" --> fn
+  fn -- "admin credential —<br/>skips the rules" --> db
+  fn --> files
+```
+
 Four of these deserve a sentence more, because the distinctions are exactly what people blur.
 
 **Frontend host.** It serves files, byte-for-byte, to anyone, and runs *none* of your code on the server — all your JavaScript runs in the *visitor's* browser. Consequence (the Module 8 point, restated at system scale): **nothing secret and nothing trusted can live here.** A client-side "gate" can hide content from a casual visit but can't stop a determined `curl`; it's a deterrent, not a lock.
@@ -61,17 +82,20 @@ Four of these deserve a sentence more, because the distinctions are exactly what
 
 Everything above collapses into one picture. A browser can reach your data **two ways**, each with a *different* guard:
 
-```
-   Path A (direct)      ┌──────────────────────────────┐
-   browser ───────────► │ reads governed by RULES / RLS │
-                        │ database / file store          │
-                        └──────────────────────────────┘
-
-   Path B (mediated)    ┌───────────────┐  admin cred   ┌──────────────┐
-   browser ───────────► │   function    │ ────────────► │ database /   │
-                 token  │  (your code)  │  (bypasses     │ file store   │
-                        └───────────────┘   rules)       └──────────────┘
-                         guarded by YOUR code
+```mermaid
+flowchart LR
+  browser["<b>Browser</b><br/>with identity token"]
+  subgraph A["Path A — direct"]
+    rules{"Rules / RLS<br/>allow it?"}
+  end
+  subgraph B["Path B — through a function"]
+    fn["<b>Function</b><br/>your code is the guard"]
+  end
+  data[("<b>Database /<br/>file store</b>")]
+  browser --> rules
+  rules -- "yes" --> data
+  browser --> fn
+  fn -- "admin credential<br/>(rules don't apply)" --> data
 ```
 
 - **Path A — direct.** The browser talks straight to the database/store. The *only* guard is the **rules/RLS**. If the policy allows it, it happens.

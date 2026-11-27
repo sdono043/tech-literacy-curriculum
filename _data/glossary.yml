@@ -1,0 +1,321 @@
+# Plain-English glossary. Powers /glossary.html and the pop-up definitions on module pages.
+#   term:    the word as it's usually written
+#   aliases: other spellings/forms to match in module text (case-insensitive, whole words)
+#   def:     one or two sentences, no jargon that isn't itself in this list
+#   module:  the module that teaches it best (file path), shown as "Learn more"
+# Only the first mention of each term on a page gets a pop-up, so pages stay readable.
+
+- term: A record
+  aliases: [A records]
+  def: "A DNS entry that points a domain name at a specific IP address — the \"street address\" of the server that hosts the site."
+  module: modules/01-dns-domain-configuration.md
+
+- term: ALIAS record
+  aliases: [ALIAS records, ANAME]
+  def: "A DNS entry some providers offer to act like a CNAME at the root of a domain, where a real CNAME isn't allowed."
+  module: modules/01-dns-domain-configuration.md
+
+- term: API
+  aliases: [APIs]
+  def: "A set of rules one program uses to ask another program for data or to do something. When an app \"calls an API,\" it's sending a structured request and getting a structured answer back."
+  module: modules/02-network-appsec-literacy.md
+
+- term: API key
+  aliases: [API keys]
+  def: "A secret string that identifies your app to a service, like a password for programs. Anyone who has it can act as you, so it must never be put in code that runs in the browser."
+  module: modules/02-network-appsec-literacy.md
+
+- term: Authentication
+  aliases: [authenticate, authenticated]
+  def: "Proving who you are — for example, signing in with Google. Compare with authorization."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: Authorization
+  aliases: [authorized]
+  def: "Deciding what a signed-in person is allowed to do — for example, whether they can see the admin page."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: Backend
+  aliases: [back end, back-end]
+  def: "The parts of an app that run on servers you control rather than in the visitor's browser — databases, functions, and anything that holds secrets."
+  module: modules/16-backend-architecture-and-deploy-model.md
+
+- term: Branch
+  aliases: [branches]
+  def: "A safe, separate copy of a project where you can make changes without affecting the official version (main) until you choose to merge."
+  module: modules/00-before-you-start-github.md
+
+- term: CAA record
+  aliases: [CAA records]
+  def: "A DNS entry that says which certificate authorities are allowed to issue security certificates (for HTTPS) for your domain."
+  module: modules/01-dns-domain-configuration.md
+
+- term: Cache
+  aliases: [cached, caching]
+  def: "A saved copy of something kept nearby so it loads faster next time. Caches are why a change sometimes doesn't show up until you refresh or wait."
+  module: modules/09-progressive-web-apps.md
+
+- term: CNAME
+  aliases: [CNAME record, CNAME records]
+  def: "A DNS entry that says \"this name is just another name for that one\" — for example, www.example.com pointing at a hosting provider's address."
+  module: modules/01-dns-domain-configuration.md
+
+- term: Commit
+  aliases: [commits]
+  def: "A saved change to a project, with a short message explaining why. Commits stack up into a permanent history instead of overwriting each other."
+  module: modules/00-before-you-start-github.md
+
+- term: CORS
+  aliases: [Cross-Origin Resource Sharing]
+  def: "Browser rules that decide whether a web page from one site may read responses from another site's server. The server has to opt in."
+  module: modules/08-serverless-edge-functions.md
+
+- term: Cron job
+  aliases: [cron jobs, cron, pg_cron]
+  def: "A task scheduled to run automatically at set times — like \"check prices every five minutes during market hours.\""
+  module: modules/11-scheduled-jobs-automation.md
+
+- term: CSS
+  def: "The language that controls how a web page looks — colors, fonts, spacing, and layout."
+  module: modules/04-frontend-fundamentals.md
+
+- term: CSS custom property
+  aliases: [CSS custom properties, CSS variable, CSS variables, design token, design tokens]
+  def: "A named value (like --brand for the main color) defined once in CSS and reused everywhere, so a change in one place updates the whole site."
+  module: modules/04-frontend-fundamentals.md
+
+- term: Database
+  aliases: [databases]
+  def: "An organized, permanent store of records that an app can search and update — like a set of spreadsheets with strict rules about what each column can hold."
+  module: modules/05-databases-sql-fundamentals.md
+
+- term: Data minimization
+  def: "Collecting and keeping only the personal data a feature truly needs. Data you never stored can't leak."
+  module: modules/12-data-privacy-sensitive-data.md
+
+- term: Deploy
+  aliases: [deployed, deploying, deployment]
+  def: "Putting a new version of software where real users get it — for example, publishing a website update."
+  module: modules/16-backend-architecture-and-deploy-model.md
+
+- term: DevTools
+  aliases: [Chrome DevTools, developer tools]
+  def: "Tools built into Chrome, Edge, and other browsers that show what a page is doing — every network request, its code, its stored data."
+  module: modules/02-network-appsec-literacy.md
+
+- term: DNS
+  aliases: [Domain Name System]
+  def: "The internet's phone book. It turns a name like vet-tech.org into the address of the server that hosts it."
+  module: modules/01-dns-domain-configuration.md
+
+- term: Edge Function
+  aliases: [Edge Functions, serverless function, serverless functions, Cloud Function, Cloud Functions]
+  def: "A small piece of server code that runs on demand in the cloud — you don't manage a server. It's where secrets and trusted checks belong."
+  module: modules/08-serverless-edge-functions.md
+
+- term: Environment variable
+  aliases: [environment variables]
+  def: "A setting given to code from outside it (such as an API key), so secrets stay out of the source code that others can read."
+  module: modules/08-serverless-edge-functions.md
+
+- term: ETL
+  aliases: [ETL migration]
+  def: "Extract, Transform, Load — the three steps of moving data from one system into another: read it, clean it up, write it in."
+  module: modules/18-data-pipelines-migration.md
+
+- term: Firebase
+  aliases: [Firestore]
+  def: "Google's set of app-building services, including Firestore, a database that stores data as documents rather than tables."
+  module: modules/firestore-vs-supabase-comparison.md
+
+- term: Foreign key
+  aliases: [foreign keys]
+  def: "A column that points at a row in another table — for example, a position's user_id pointing at the user who owns it. The database won't let it point at something that doesn't exist."
+  module: modules/05-databases-sql-fundamentals.md
+
+- term: Frontend
+  aliases: [front end, front-end]
+  def: "The part of an app that runs in the visitor's browser — what they see and click. Anyone can read and change it, so it can't be trusted with secrets."
+  module: modules/04-frontend-fundamentals.md
+
+- term: GitHub Pages
+  def: "A free GitHub feature that publishes a repository's files as a live website, updating automatically when changes are merged."
+  module: modules/00-before-you-start-github.md
+
+- term: HTML
+  def: "The language that gives a web page its structure — headings, paragraphs, buttons, links."
+  module: modules/04-frontend-fundamentals.md
+
+- term: HTTPS
+  def: "The secure version of the web's basic protocol. The padlock in your address bar means traffic is encrypted and the site proved who it is with a certificate."
+  module: modules/02-network-appsec-literacy.md
+
+- term: Idempotent
+  aliases: [idempotency]
+  def: "Safe to run more than once. An idempotent import run twice gives the same result as running it once — no duplicates."
+  module: modules/18-data-pipelines-migration.md
+
+- term: Input validation
+  def: "Checking that data someone submits is the kind you expect (length, characters, format) before using it."
+  module: modules/17-web-vulnerabilities-xss.md
+
+- term: IP address
+  aliases: [IP addresses]
+  def: "The numeric address of a computer on the internet, like 185.199.108.153."
+  module: modules/01-dns-domain-configuration.md
+
+- term: JavaScript
+  def: "The programming language that makes web pages interactive — responding to clicks, loading data, updating the page."
+  module: modules/04-frontend-fundamentals.md
+
+- term: JOIN
+  aliases: [JOINs]
+  def: "A SQL instruction that combines rows from two tables using a shared key — for example, showing each position next to its owner's email."
+  module: modules/05-databases-sql-fundamentals.md
+
+- term: JWT
+  aliases: [JWTs, JSON Web Token]
+  def: "A signed digital pass the app sends with every request to prove who you are. Anyone can read it, but nobody can change it without breaking the signature."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: Merge
+  aliases: [merged, merging]
+  def: "Accepting a pull request so its changes become part of the official version (main)."
+  module: modules/00-before-you-start-github.md
+
+- term: Merge conflict
+  aliases: [merge conflicts]
+  def: "What happens when two changes edit the same lines differently. Git asks a person to decide what the result should be instead of guessing."
+  module: modules/00-before-you-start-github.md
+
+- term: Migration
+  aliases: [migrations]
+  def: "A recorded, repeatable change to a database's structure — or moving data from one system to another."
+  module: modules/06-supabase-deep-dive.md
+
+- term: OAuth
+  aliases: [OAuth 2.0]
+  def: "The standard behind \"Sign in with Google.\" The app gets proof of who you are without ever seeing your password."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: PII
+  aliases: [personally identifiable information]
+  def: "Personally identifiable information — anything that can identify a specific person, like a name with an address, or a Social Security number."
+  module: modules/12-data-privacy-sensitive-data.md
+
+- term: Postgres
+  aliases: [PostgreSQL]
+  def: "A popular, free relational database (tables and SQL). Supabase is built on it."
+  module: modules/06-supabase-deep-dive.md
+
+- term: Primary key
+  aliases: [primary keys]
+  def: "The column that uniquely identifies each row in a table, like an ID number no two rows share."
+  module: modules/05-databases-sql-fundamentals.md
+
+- term: Propagation
+  aliases: [DNS propagation]
+  def: "The delay while a DNS change spreads across the internet, because servers everywhere keep saved copies for a while."
+  module: modules/01-dns-domain-configuration.md
+
+- term: Pull request
+  aliases: [pull requests, PR, PRs]
+  def: "A proposal to bring a branch's changes into the official version. It shows exactly what changed so someone can review it before merging."
+  module: modules/00-before-you-start-github.md
+
+- term: Push notification
+  aliases: [push notifications, web push]
+  def: "A message an app sends to your device even when you don't have the site open."
+  module: modules/10-push-notifications.md
+
+- term: PWA
+  aliases: [PWAs, Progressive Web App, Progressive Web Apps]
+  def: "A website built so it can be installed on a phone's home screen and behave like an app."
+  module: modules/09-progressive-web-apps.md
+
+- term: RBAC
+  aliases: [role-based access control]
+  def: "Role-based access control — giving people permissions based on their role (user, admin) instead of one at a time."
+  module: modules/13-role-based-access-control.md
+
+- term: Registrar
+  aliases: [registrars]
+  def: "The company you pay to reserve a domain name. Owning the name is separate from where its DNS records live and where the site is hosted."
+  module: modules/01-dns-domain-configuration.md
+
+- term: Repository
+  aliases: [repositories, repo, repos]
+  def: "A project folder that remembers every change ever made to it, along with who made it and why."
+  module: modules/00-before-you-start-github.md
+
+- term: Row Level Security
+  aliases: [RLS, Row-Level Security]
+  def: "Database rules that decide, row by row, which records a signed-in person can read or change — the real lock when the browser talks to the database directly."
+  module: modules/06-supabase-deep-dive.md
+
+- term: SECURITY DEFINER
+  def: "A database function setting that runs the function with its owner's permissions. Powerful, so it must check who's calling before doing anything."
+  module: modules/13-role-based-access-control.md
+
+- term: Service role key
+  aliases: [service-role key]
+  def: "A Supabase master key that skips all Row Level Security. It must only ever live in trusted server code, never in the browser."
+  module: modules/16-backend-architecture-and-deploy-model.md
+
+- term: Service worker
+  aliases: [service workers]
+  def: "A small script the browser runs in the background for a site, used for offline support and push notifications."
+  module: modules/09-progressive-web-apps.md
+
+- term: Session
+  aliases: [sessions]
+  def: "The period you stay signed in. The app keeps a token in your browser so you don't have to sign in on every page."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: SPF, DKIM, and DMARC
+  aliases: [SPF, DKIM, DMARC]
+  def: "Three DNS-based checks that let email providers confirm a message really came from the domain it claims to be from."
+  module: modules/19-email-notification-deliverability.md
+
+- term: SQL
+  def: "The language for asking a relational database questions and changing its data — \"show me every position owned by this user.\""
+  module: modules/05-databases-sql-fundamentals.md
+
+- term: Supabase
+  def: "A service that bundles a Postgres database, sign-in, file storage, and server functions, with a free tier."
+  module: modules/06-supabase-deep-dive.md
+
+- term: TLS
+  aliases: [SSL]
+  def: "The encryption behind HTTPS. A TLS certificate proves a site is who it claims to be."
+  module: modules/02-network-appsec-literacy.md
+
+- term: Token
+  aliases: [tokens, access token]
+  def: "A digital pass an app hands back after you sign in, sent with later requests to prove who you are."
+  module: modules/07-authentication-how-signin-works.md
+
+- term: Transactional email
+  aliases: [transactional]
+  def: "An email someone expects because of something they did — a sign-in link, a receipt. Different rules apply than for marketing email."
+  module: modules/19-email-notification-deliverability.md
+
+- term: TTL
+  aliases: [time-to-live]
+  def: "Time to live — how long other servers may keep a saved copy of a DNS record before checking for a new one."
+  module: modules/01-dns-domain-configuration.md
+
+- term: VAPID
+  aliases: [VAPID keys]
+  def: "A pair of keys that proves push notifications really come from your server."
+  module: modules/10-push-notifications.md
+
+- term: Wildcard record
+  aliases: [wildcard records, wildcard]
+  def: "A DNS entry written as * that matches any name without its own entry. An exact entry always wins over the wildcard."
+  module: modules/01-dns-domain-configuration.md
+
+- term: XSS
+  aliases: [cross-site scripting]
+  def: "Cross-site scripting — a bug where text someone submits is treated as code by other visitors' browsers."
+  module: modules/17-web-vulnerabilities-xss.md
