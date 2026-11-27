@@ -3,7 +3,7 @@
 ## Module 15: Financial App Domain Concepts — Domain Logic in Code
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Building Real Products
+**Track:** 4 — Building Real Products
 **Format:** Guided lab using a real retirement and portfolio tracking app
 **Prerequisite:** Module 4 (Frontend Fundamentals), Module 5 (Databases 101)
 **Leads into:** No required successor — this is a domain-specific capstone

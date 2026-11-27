@@ -3,7 +3,7 @@
 ## Module 4: Frontend Fundamentals — HTML, CSS, and JavaScript
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Foundations — How the Web Works
+**Track:** 1 — Foundations: How the Web Works
 **Format:** Guided lab using a real production codebase (retire-time.com)
 **Prerequisite:** Module 3 (Git & GitHub) recommended — labs involve pushing changes to a repository
 **Leads into:** Module 5 — Databases 101 (backend); Module 8 — Serverless Functions

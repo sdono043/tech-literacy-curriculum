@@ -64,7 +64,7 @@ domains:
         extra: true
 
   - id: 3
-    name: Modern App Features
+    name: Modern Web App Features
     subtitle: Making it feel like an app
     icon: phone
     intro: Builds on Backend & Databases.
@@ -113,7 +113,7 @@ domains:
         status: draft
 
   - id: 5
-    name: Architecture & Shipping
+    name: Architecture, Security & Shipping
     subtitle: Putting it all together
     icon: rocket
     intro: The final stretch — ending with the capstone.

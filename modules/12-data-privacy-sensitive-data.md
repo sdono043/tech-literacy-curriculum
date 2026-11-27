@@ -3,7 +3,7 @@
 ## Module 12: Data Privacy — What Never Leaves the Server
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025-2026
-**Domain:** Modern Web App Features
+**Track:** 3 — Modern Web App Features
 **Format:** Guided lab + architectural decision workshop
 **Prerequisite:** Module 6 (Supabase Deep Dive), Module 8 (Serverless Functions)
 **Leads into:** Module 13 — Role-Based Access Control

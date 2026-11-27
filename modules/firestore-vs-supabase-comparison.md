@@ -3,10 +3,10 @@
 ## Deep Dive: Firestore vs. Supabase — When to Use Which
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Backend & Databases (companion to Modules 5–8)
+**Track:** 2 — Backend & Databases (deep dive, companion to Modules 5–8)
 **Format:** Technical comparison with side-by-side code examples and decision framework
 **Prerequisite:** Module 5 (SQL fundamentals), Module 6 (Supabase), or equivalent Firestore experience
-**Position in curriculum:** This deep dive sits between Domain 2 and Domain 3, after learners have worked with Supabase hands-on and are asking the right question: "when would I use the other thing?"
+**Position in curriculum:** This deep dive sits between Track 2 and Track 3, after learners have worked with Supabase hands-on and are asking the right question: "when would I use the other thing?"
 
 **A note on framing:** Supabase's own marketing calls it "an open source Firebase alternative." This framing is backwards for learning — it defines Supabase by what it's not. This module instead defines both platforms by what they *are* and treats the comparison as a decision-making exercise, not a verdict.
 

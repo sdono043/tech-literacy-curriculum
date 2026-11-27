@@ -3,7 +3,7 @@
 ## Module 3: Git & GitHub — Version Control for Non-Developers
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Foundations — How the Web Works
+**Track:** 1 — Foundations: How the Web Works
 **Format:** Guided lab using a real project repository with a full commit history
 **Prerequisite:** None required, though Module 4 (Frontend Fundamentals) is a natural companion
 **Leads into:** Module 5 — Databases 101 (all subsequent modules assume basic git/GitHub fluency)

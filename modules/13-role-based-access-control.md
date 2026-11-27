@@ -3,7 +3,7 @@
 ## Module 13: Role-Based Access Control — Admin vs. User
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Building Real Products
+**Track:** 4 — Building Real Products
 **Format:** Guided lab using a real deployed admin console
 **Prerequisite:** Module 6 (Supabase Deep Dive), Module 7 (Authentication)
 **Leads into:** Module 14 — Analytics & Dashboards

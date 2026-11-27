@@ -3,7 +3,7 @@
 ## Module 20 (Capstone): Shipping Real Software with an AI Agent — As a Non-Engineer
 
 **Status:** Draft v1 — built from a live hands-on session, November 2026
-**Domain:** D — Data, Privacy & Product Thinking (capstone — integrates all prior domains)
+**Track:** 5 — Architecture, Security & Shipping
 **Format:** Reflective reading + a real, shippable capstone project
 **Prerequisite:** Modules 1–19 (this module assumes their vocabulary)
 **Leads into:** The learner's own continued building

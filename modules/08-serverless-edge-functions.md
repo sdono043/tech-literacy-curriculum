@@ -3,7 +3,7 @@
 ## Module 8: Serverless Edge Functions — Code Without Servers
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Backend & Databases
+**Track:** 2 — Backend & Databases
 **Format:** Conceptual walkthrough with hands-on lab deploying a real Supabase Edge Function
 **Prerequisite:** Module 6 — Supabase Deep Dive (database layer, secrets management); Module 7 — Authentication (JWT handling)
 **Leads into:** Module 10 — Push Notifications (the price-alerts Edge Function is the full worked example for push)

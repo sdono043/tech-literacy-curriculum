@@ -3,7 +3,7 @@
 ## Module 9: Progressive Web Apps — Turning a Website Into an App
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025-2026
-**Domain:** Modern Web App Features
+**Track:** 3 — Modern Web App Features
 **Format:** Guided lab using a real deployed site (retire-time.com)
 **Prerequisite:** Module 4 (Frontend Fundamentals), Module 3 (Git & GitHub)
 **Leads into:** Module 10 — Web Push Notifications

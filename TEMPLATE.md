@@ -19,7 +19,7 @@ Guiding principles:
 ## Module N: <Title> — <One-line framing of the practical skill>
 
 **Status:** Draft v1 — built from a live hands-on session, <month year>
-**Domain:** <A — Networking & Systems Fundamentals | B — Cybersecurity & Application Security | C — Web & Cloud Application Architecture | D — Data, Privacy & Product Thinking> (a module may cross domains)
+**Track:** <1 — Foundations: How the Web Works | 2 — Backend & Databases | 3 — Modern Web App Features | 4 — Building Real Products | 5 — Architecture, Security & Shipping>
 **Format:** <Guided lab | Self-paced lab with real artifacts | Reading + exercise>
 **Prerequisite:** <Module(s), or "None">
 **Leads into:** <the next module(s) this unlocks>

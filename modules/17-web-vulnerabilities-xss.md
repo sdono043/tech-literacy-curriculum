@@ -3,7 +3,7 @@
 ## Module 17: Web Application Vulnerabilities — Cross-Site Scripting (XSS) & Input Validation
 
 **Status:** Draft v1 — built from a live hands-on session, November 2026
-**Domain:** B — Cybersecurity & Application Security
+**Track:** 5 — Architecture, Security & Shipping
 **Format:** Guided reading + **authorized** hands-on testing against your own app
 **Prerequisite:** Module 2 (DevTools), Module 5 (Databases), Module 7 (Authentication)
 **Leads into:** Module 12 (Data Privacy & Sensitive Data)

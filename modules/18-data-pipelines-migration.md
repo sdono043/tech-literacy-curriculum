@@ -3,7 +3,7 @@
 ## Module 18: Data Pipelines & Migration — Moving Real Data, and Why Matching Names Is Hard
 
 **Status:** Draft v1 — built from a live hands-on session, November 2026
-**Domain:** D — Data, Privacy & Product Thinking
+**Track:** 5 — Architecture, Security & Shipping
 **Format:** Guided reading + data-wrangling labs
 **Prerequisite:** Module 5 (Databases)
 **Leads into:** Module 20 (Capstone)
