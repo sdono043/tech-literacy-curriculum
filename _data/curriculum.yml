@@ -1,0 +1,145 @@
+# Single source of truth for the learning path shown on the home page,
+# the module sidebar, and the previous/next links at the bottom of each module.
+# status: published | draft
+
+domains:
+  - id: 1
+    name: Foundations
+    subtitle: How the web works
+    icon: globe
+    intro: No experience needed. Start here.
+    modules:
+      - num: "01"
+        file: modules/01-dns-domain-configuration.md
+        title: DNS & Domain Configuration
+        blurb: What actually happens when you type a web address — and how we pointed vet-tech.org at a real site.
+        status: published
+      - num: "02"
+        file: modules/02-network-appsec-literacy.md
+        title: Network & App Security
+        blurb: Open your browser's developer tools and see every request an app makes — including the ones it shouldn't.
+        status: published
+      - num: "03"
+        file: modules/03-git-github-version-control.md
+        title: Git & GitHub
+        blurb: How code is saved, shared, and reviewed — and how a single click can publish a live website.
+        status: draft
+      - num: "04"
+        file: modules/04-frontend-fundamentals.md
+        title: Frontend Fundamentals
+        blurb: The three languages every web page is made of, and how a browser turns them into what you see.
+        status: draft
+
+  - id: 2
+    name: Backend & Databases
+    subtitle: Where the data lives
+    icon: database
+    intro: Builds on Foundations.
+    modules:
+      - num: "05"
+        file: modules/05-databases-sql-fundamentals.md
+        title: Databases 101
+        blurb: From spreadsheets to SQL — why databases exist and how to ask them questions.
+        status: draft
+      - num: "06"
+        file: modules/06-supabase-deep-dive.md
+        title: Supabase Deep Dive
+        blurb: Set up a real cloud database with sign-in, security rules, and scheduled jobs.
+        status: draft
+      - num: "07"
+        file: modules/07-authentication-how-signin-works.md
+        title: How Sign-In Works
+        blurb: What really happens when you click "Sign in with Google" — tokens, sessions, and trust.
+        status: draft
+      - num: "08"
+        file: modules/08-serverless-edge-functions.md
+        title: Serverless Functions
+        blurb: Running code in the cloud without managing a server — and keeping secrets secret.
+        status: draft
+      - num: "DD"
+        file: modules/firestore-vs-supabase-comparison.md
+        title: "Deep dive: Firestore vs. Supabase"
+        blurb: Two popular databases side by side, and how to choose between them.
+        status: draft
+        extra: true
+
+  - id: 3
+    name: Modern App Features
+    subtitle: Making it feel like an app
+    icon: phone
+    intro: Builds on Backend & Databases.
+    modules:
+      - num: "09"
+        file: modules/09-progressive-web-apps.md
+        title: Progressive Web Apps
+        blurb: Turn a website into something people can install on their phone's home screen.
+        status: draft
+      - num: "10"
+        file: modules/10-push-notifications.md
+        title: Push Notifications
+        blurb: Reach people when they're not on your site — built from a real price-alert system.
+        status: draft
+      - num: "11"
+        file: modules/11-scheduled-jobs-automation.md
+        title: Scheduled Jobs
+        blurb: Make things happen automatically on a schedule, like checking prices every few minutes.
+        status: draft
+      - num: "12"
+        file: modules/12-data-privacy-sensitive-data.md
+        title: Data Privacy
+        blurb: Handling sensitive information like Social Security numbers — and what should never be stored.
+        status: draft
+
+  - id: 4
+    name: Building Real Products
+    subtitle: Thinking like a builder
+    icon: tools
+    intro: Builds on the first three tracks.
+    modules:
+      - num: "13"
+        file: modules/13-role-based-access-control.md
+        title: Admins vs. Users
+        blurb: Who's allowed to see and do what — and why hiding a button isn't real security.
+        status: draft
+      - num: "14"
+        file: modules/14-analytics-understanding-your-users.md
+        title: Analytics & Dashboards
+        blurb: Answer real questions about how people use your app with simple, honest numbers.
+        status: draft
+      - num: "15"
+        file: modules/15-financial-app-domain-concepts.md
+        title: Financial App Concepts
+        blurb: Capital gains, tax-loss harvesting, and turning real-world rules into working code.
+        status: draft
+
+  - id: 5
+    name: Architecture & Shipping
+    subtitle: Putting it all together
+    icon: rocket
+    intro: The final stretch — ending with the capstone.
+    modules:
+      - num: "16"
+        file: modules/16-backend-architecture-and-deploy-model.md
+        title: How the Pieces Fit
+        blurb: A map of a whole working system, and what "deploy" actually changes.
+        status: draft
+      - num: "17"
+        file: modules/17-web-vulnerabilities-xss.md
+        title: Web Vulnerabilities (XSS)
+        blurb: Find and fix a real security bug — safely, on your own app.
+        status: draft
+      - num: "18"
+        file: modules/18-data-pipelines-migration.md
+        title: Data Pipelines & Migration
+        blurb: Move real data into a new system, and learn why matching "Jay" to "James" is hard.
+        status: draft
+      - num: "19"
+        file: modules/19-email-notification-deliverability.md
+        title: Email Deliverability
+        blurb: Getting a message to a person's inbox — and earning the right to send it.
+        status: draft
+      - num: "20"
+        file: modules/20-capstone-shipping-with-ai.md
+        title: "Capstone: Shipping with AI"
+        blurb: How someone with no coding background builds and ships real software with an AI partner.
+        status: draft

@@ -1,0 +1,44 @@
+title: Vet Tech
+tagline: Tech literacy, learned on real projects
+description: >-
+  A free, self-paced curriculum that teaches how modern software really works —
+  built from real apps that were actually shipped. Made for transitioning veterans
+  and career-changers with no software background.
+url: https://vet-tech.org
+baseurl: ""
+repo_url: https://github.com/sdono043/tech-literacy-curriculum
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+  - jekyll-seo-tag
+
+optional_front_matter:
+  remove_originals: true
+
+relative_links:
+  enabled: true
+  collections: false
+
+defaults:
+  - scope:
+      path: "modules"
+    values:
+      layout: module
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
