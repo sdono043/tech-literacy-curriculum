@@ -1,0 +1,142 @@
+---
+layout: default
+title: Learn how modern software really works
+body_class: is-home
+---
+{%- assign core_count = 0 -%}
+{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless m.extra -%}{%- assign core_count = core_count | plus: 1 -%}{%- endunless -%}{%- endfor -%}{%- endfor -%}
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="pill">{% include icon.html name="heart" size=16 %} Free · Self-paced · No experience needed</p>
+      <h1>Understand the tech.<br><span class="accent">Build with confidence.</span></h1>
+      <p class="hero-lede">A plain-language curriculum that teaches how websites and apps actually work — using real projects that were really built and shipped. Made for transitioning veterans and anyone starting fresh.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="{{ '/modules/01-dns-domain-configuration.html' | relative_url }}" data-resume>
+          <span data-resume-label>Start Module 1</span> {% include icon.html name="arrow-right" size=20 %}
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#path">See all {{ core_count }} modules</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-label="Your progress">
+      <div class="progress-head">
+        <span class="progress-label">Your progress</span>
+        <span class="progress-count"><strong data-progress-count>0</strong> of {{ core_count }} done</span>
+      </div>
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ core_count }}" aria-valuenow="0" data-progress-bar><span></span></div>
+      <ol class="hero-steps">
+        {%- for d in site.data.curriculum.domains -%}
+        <li class="domain-{{ d.id }}">
+          <span class="step-icon">{% include icon.html name=d.icon size=20 %}</span>
+          <span class="step-text"><strong>{{ d.name }}</strong><small>{{ d.subtitle }}</small></span>
+          <span class="step-meta" data-domain-progress="{{ d.id }}">{{ d.modules | where_exp: "m", "m.extra != true" | size }} modules</span>
+        </li>
+        {%- endfor -%}
+      </ol>
+      <p class="hero-card-note">Progress is saved privately in this browser. No account needed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Learn by looking at the real thing</h2>
+      <p class="section-lede">No made-up examples. Every lesson comes from a real moment on a real project — usually a "wait, why didn't that just work?" moment.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="feature-icon">{% include icon.html name="book" size=24 %}</span>
+        <h3>Read it in plain English</h3>
+        <p>Each module starts with <em>why it matters</em>, then explains the ideas before any jargon.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">{% include icon.html name="flask" size=24 %}</span>
+        <h3>Try it hands-on</h3>
+        <p>Short labs walk you through real tools — your browser, a free GitHub account, and later a free database.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">{% include icon.html name="clipboard" size=24 %}</span>
+        <h3>Check yourself</h3>
+        <p>Every module ends with a simple checklist. When you can do everything on it, you're ready to move on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="path">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">The learning path</p>
+      <h2>Five tracks, one step at a time</h2>
+      <p class="section-lede">Go in order the first time through — each module builds on the one before it.</p>
+    </div>
+
+    {%- for d in site.data.curriculum.domains -%}
+    <div class="track domain-{{ d.id }}" id="track-{{ d.id }}">
+      <div class="track-head">
+        <span class="track-icon">{% include icon.html name=d.icon size=26 %}</span>
+        <div>
+          <p class="track-step">Track {{ d.id }}</p>
+          <h3>{{ d.name }} <span class="track-sub">— {{ d.subtitle }}</span></h3>
+          <p class="track-intro">{{ d.intro }}</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        {%- for m in d.modules -%}
+        <a class="module-card{% if m.extra %} is-extra{% endif %}" href="{{ m.file | replace: '.md', '.html' | relative_url }}" data-module-card="{{ m.file }}">
+          <span class="card-top">
+            <span class="card-num">{% if m.extra %}Deep dive{% else %}Module {{ m.num | plus: 0 }}{% endif %}</span>
+            <span class="card-check" aria-hidden="true">{% include icon.html name="check" size=14 %}</span>
+          </span>
+          <span class="card-title">{{ m.title }}</span>
+          <span class="card-blurb">{{ m.blurb }}</span>
+          <span class="card-foot">
+            {%- if m.status == "published" -%}<span class="chip chip-pub">Published</span>{%- else -%}<span class="chip chip-draft">Draft</span>{%- endif -%}
+            <span class="card-go">Open {% include icon.html name="arrow-right" size=16 %}</span>
+          </span>
+          <span class="sr-only" data-card-status></span>
+        </a>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="section" id="who">
+  <div class="container who">
+    <div>
+      <p class="eyebrow">Who it's for</p>
+      <h2>Capable people, new to software</h2>
+      <p class="section-lede">You don't need to know how to code. You need curiosity and a willingness to poke at real things. If you've led a team, followed a checklist under pressure, or troubleshot equipment in the field, you already have the instincts this curriculum builds on.</p>
+    </div>
+    <ul class="checklist">
+      <li>{% include icon.html name="check" size=18 %} Transitioning service members heading into tech roles</li>
+      <li>{% include icon.html name="check" size=18 %} Career-changers who want to understand what engineers do</li>
+      <li>{% include icon.html name="check" size=18 %} Founders and managers working with developers or AI coding tools</li>
+      <li>{% include icon.html name="check" size=18 %} Anyone who has wondered "how does this actually work?"</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Ready when you are.</h2>
+        <p>Module 1 takes you from typing a web address to understanding exactly where it goes.</p>
+      </div>
+      <a class="btn btn-light btn-lg" href="{{ '/modules/01-dns-domain-configuration.html' | relative_url }}" data-resume>
+        <span data-resume-label>Start Module 1</span> {% include icon.html name="arrow-right" size=20 %}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script id="vt-path" type="application/json">
+[{%- assign first = true -%}{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless first -%},{%- endunless -%}{%- assign first = false -%}{"file":{{ m.file | jsonify }},"url":{{ m.file | replace: '.md', '.html' | relative_url | jsonify }},"num":{{ m.num | jsonify }},"title":{{ m.title | jsonify }},"domain":{{ d.id }},"extra":{% if m.extra %}true{% else %}false{% endif %}}{%- endfor -%}{%- endfor -%}]
+</script>

@@ -1,0 +1,97 @@
+---
+layout: default
+body_class: is-module
+---
+{%- comment -%} Flatten the learning path and locate this page in it. {%- endcomment -%}
+{%- assign flat = "" | split: "" -%}
+{%- for d in site.data.curriculum.domains -%}
+  {%- for m in d.modules -%}{%- assign flat = flat | push: m -%}{%- endfor -%}
+{%- endfor -%}
+{%- assign cur = nil -%}{%- assign idx = -1 -%}
+{%- for m in flat -%}
+  {%- if m.file == page.path -%}{%- assign cur = m -%}{%- assign idx = forloop.index0 -%}{%- endif -%}
+{%- endfor -%}
+{%- assign cur_domain = nil -%}
+{%- for d in site.data.curriculum.domains -%}
+  {%- for m in d.modules -%}{%- if m.file == page.path -%}{%- assign cur_domain = d -%}{%- endif -%}{%- endfor -%}
+{%- endfor -%}
+{%- assign total = flat | size -%}
+{%- assign prev_i = idx | minus: 1 -%}
+{%- if idx > 0 -%}{%- assign prev = flat[prev_i] -%}{%- endif -%}
+{%- assign next_i = idx | plus: 1 -%}
+{%- if idx >= 0 and next_i < total -%}{%- assign next = flat[next_i] -%}{%- endif -%}
+
+<div class="module-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span>
+      <a href="{{ '/#path' | relative_url }}">Modules</a>
+      {%- if cur_domain -%}<span aria-hidden="true">/</span><span>{{ cur_domain.name }}</span>{%- endif -%}
+    </nav>
+    {%- if cur -%}
+    <div class="module-hero-row">
+      <div class="module-badge domain-{{ cur_domain.id }}" aria-hidden="true">{% if cur.extra %}{% include icon.html name="book" size=26 %}{% else %}{{ cur.num }}{% endif %}</div>
+      <div>
+        <p class="eyebrow">{% if cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }} of 20{% endif %} · {{ cur_domain.name }}</p>
+        <h1 class="module-title">{{ cur.title }}</h1>
+        <p class="module-lede">{{ cur.blurb }}</p>
+        <div class="module-actions">
+          <button class="btn btn-primary" type="button" data-complete="{{ cur.file }}">
+            <span class="when-todo">{% include icon.html name="check" size=18 %} Mark as complete</span>
+            <span class="when-done">{% include icon.html name="check" size=18 %} Completed</span>
+          </button>
+          {%- if cur.status == "draft" -%}<span class="chip chip-draft" title="This module is written and usable, and still being refined.">Draft</span>{%- else -%}<span class="chip chip-pub">Published</span>{%- endif -%}
+        </div>
+      </div>
+    </div>
+    {%- else -%}
+    <h1 class="module-title">{{ page.title }}</h1>
+    {%- endif -%}
+  </div>
+</div>
+
+<div class="container module-layout">
+  <aside class="module-toc" aria-label="On this page">
+    <div class="toc-sticky">
+      <p class="toc-title">{% include icon.html name="list" size=16 %} On this page</p>
+      <nav data-toc></nav>
+    </div>
+  </aside>
+
+  <article class="prose prose-module" data-module-body>
+    {{ content }}
+
+    {%- if cur -%}
+    <div class="finish-card">
+      <div>
+        <h2>Finished this module?</h2>
+        <p>Run through the assessment checklist above. When you can do everything on it, mark the module complete and keep going.</p>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="{{ cur.file }}">
+        <span class="when-todo">{% include icon.html name="check" size=18 %} Mark as complete</span>
+        <span class="when-done">{% include icon.html name="check" size=18 %} Completed</span>
+      </button>
+    </div>
+    {%- endif -%}
+
+    <nav class="pager" aria-label="Previous and next module">
+      {%- if prev -%}
+      <a class="pager-link prev" href="{{ prev.file | replace: '.md', '.html' | relative_url }}">
+        <span class="pager-dir">{% include icon.html name="arrow-left" size=16 %} Previous</span>
+        <span class="pager-title">{{ prev.title }}</span>
+      </a>
+      {%- else -%}<span></span>{%- endif -%}
+      {%- if next -%}
+      <a class="pager-link next" href="{{ next.file | replace: '.md', '.html' | relative_url }}">
+        <span class="pager-dir">Next {% include icon.html name="arrow-right" size=16 %}</span>
+        <span class="pager-title">{{ next.title }}</span>
+      </a>
+      {%- else -%}
+      <a class="pager-link next" href="{{ '/#path' | relative_url }}">
+        <span class="pager-dir">You made it {% include icon.html name="arrow-right" size=16 %}</span>
+        <span class="pager-title">Back to all modules</span>
+      </a>
+      {%- endif -%}
+    </nav>
+  </article>
+</div>
