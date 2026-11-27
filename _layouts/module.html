@@ -97,6 +97,31 @@ body_class: is-module
     </div>
     {%- endif -%}
 
+    {%- if cur -%}
+    {%- capture fb_title -%}Feedback: {% if cur.prereq %}Start here{% elsif cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }}{% endif %} — {{ cur.title }}{%- endcapture -%}
+    {%- capture fb_body -%}**Module:** {{ cur.title }}
+**Page:** {{ page.url | absolute_url }}
+
+**What was unclear, wrong, or broken?**
+
+
+**Where in the module?** (section or lab name)
+
+
+**Anything that would have helped?**
+{% endcapture -%}
+    <aside class="feedback-card" aria-label="Module feedback">
+      <div>
+        <h2>Was this module clear?</h2>
+        <p>If something confused you, didn't match what you saw, or just didn't work — tell us. Every note makes the next version better for the next learner.</p>
+      </div>
+      <a class="btn btn-ghost" href="{{ site.repo_url }}/issues/new?title={{ fb_title | url_encode }}&body={{ fb_body | url_encode }}" target="_blank" rel="noopener">
+        {% include icon.html name="clipboard" size=18 %} Share feedback
+      </a>
+      <p class="feedback-note">Opens a short form on GitHub (you'll use the free account from Module 0).</p>
+    </aside>
+    {%- endif -%}
+
     <nav class="pager" aria-label="Previous and next module">
       {%- if prev -%}
       <a class="pager-link prev" href="{{ prev.file | replace: '.md', '.html' | relative_url }}">

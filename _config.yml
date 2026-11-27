@@ -18,7 +18,6 @@ plugins:
   - jekyll-optional-front-matter
   - jekyll-relative-links
   - jekyll-titles-from-headings
-  - jekyll-seo-tag
 
 optional_front_matter:
   remove_originals: true

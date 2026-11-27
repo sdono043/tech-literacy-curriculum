@@ -26,7 +26,7 @@ body_class: is-home
         <span class="progress-label">Your progress</span>
         <span class="progress-count"><strong data-progress-count>0</strong> of {{ core_count }} done</span>
       </div>
-      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ core_count }}" aria-valuenow="0" data-progress-bar><span></span></div>
+      <div class="progress-bar" role="progressbar" aria-label="Modules completed" aria-valuemin="0" aria-valuemax="{{ core_count }}" aria-valuenow="0" data-progress-bar><span></span></div>
       <ol class="hero-steps">
         {%- for d in site.data.curriculum.domains -%}{%- if d.id == 0 -%}{%- continue -%}{%- endif -%}
         <li class="domain-{{ d.id }}">
