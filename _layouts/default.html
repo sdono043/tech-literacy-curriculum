@@ -15,7 +15,9 @@
   {%- if page.path == "CURRICULUM.md" -%}{%- assign doc_title = "Master syllabus" -%}{%- endif -%}
   <title>{% if page.path == "index.html" %}vet·tech — {{ page.title }}{% else %}{{ doc_title }} · vet·tech{% endif %}</title>
   {% seo title=false %}
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
