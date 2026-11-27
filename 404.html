@@ -1,0 +1,22 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+description: That page doesn't exist — here's how to get back on track.
+---
+<section class="notfound">
+  <div class="container notfound-inner">
+    <p class="notfound-code" aria-hidden="true">404</p>
+    <h1>That page isn't here.</h1>
+    <p class="notfound-lede">The link may be old, or the address may have a typo. Nothing's broken on your end — here's how to get back on track.</p>
+    <div class="notfound-actions">
+      <a class="btn btn-primary btn-lg" href="{{ '/' | relative_url }}">Go to the home page {% include icon.html name="arrow-right" size=20 %}</a>
+      <a class="btn btn-ghost btn-lg" href="{{ '/#path' | relative_url }}">See all modules</a>
+    </div>
+    <ul class="notfound-links">
+      <li><a href="{{ '/modules/00-before-you-start-github.html' | relative_url }}">{% include icon.html name="github" size=18 %} New here? Start with setting up GitHub</a></li>
+      <li><a href="{{ '/glossary.html' | relative_url }}">{% include icon.html name="book" size=18 %} Look up a term in the glossary</a></li>
+      <li><a href="{{ site.repo_url }}/issues/new?title={{ 'Broken link on vet-tech.org' | url_encode }}&body={{ 'I followed a link and got a "page not found" error.%0A%0A**Where was the link?** (page or site)%0A%0A**What were you trying to reach?**%0A' | url_encode | replace: '%250A', '%0A' }}">{% include icon.html name="clipboard" size=18 %} Tell us about a broken link</a></li>
+    </ul>
+  </div>
+</section>

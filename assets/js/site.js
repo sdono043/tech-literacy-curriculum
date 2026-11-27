@@ -139,6 +139,23 @@
     }
   }
 
+  // ---------- Code boxes that scroll sideways: let keyboard users scroll them too ----------
+  function makeCodeScrollable() {
+    document.querySelectorAll('.prose pre').forEach(function (pre) {
+      if (pre.closest('.diagram')) return;
+      if (pre.scrollWidth > pre.clientWidth + 1) {
+        pre.setAttribute('tabindex', '0');
+        pre.setAttribute('role', 'region');
+        pre.setAttribute('aria-label', 'Code example (scrolls sideways)');
+      } else {
+        pre.removeAttribute('tabindex'); pre.removeAttribute('role'); pre.removeAttribute('aria-label');
+      }
+    });
+  }
+  makeCodeScrollable();
+  var codeResizeTimer;
+  window.addEventListener('resize', function () { clearTimeout(codeResizeTimer); codeResizeTimer = setTimeout(makeCodeScrollable, 200); });
+
   // ---------- Module page: clickable self-check (saved in this browser) ----------
   (function () {
     var article = document.querySelector('[data-module-file]');
