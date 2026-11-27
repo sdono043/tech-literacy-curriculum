@@ -1,9 +1,9 @@
 # Technology Literacy Curriculum (TLC)
 
-## Module: Network & Application Security Literacy — Reading Chrome DevTools Like a Practitioner
+## Module 2: Network & Application Security Literacy — Reading Chrome DevTools Like a Practitioner
 
 **Status:** Draft v1 — built from a live hands-on session, July 2026
-**Domain:** Networking & Systems Fundamentals + Cybersecurity & Application Security (crosses both TLC domains)
+**Track:** 1 — Foundations: How the Web Works
 **Format:** Self-paced lab with real-world artifacts (student's own deployed project)
 
 ## Why This Module Exists

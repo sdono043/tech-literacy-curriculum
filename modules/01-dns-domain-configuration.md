@@ -3,9 +3,9 @@
 ## Module 1: DNS & Domain Configuration — Pointing a Real Domain at a Real Site
 
 **Status:** Draft v1 — built from a live hands-on session, July 2026
-**Domain:** Networking & Systems Fundamentals
+**Track:** 1 — Foundations: How the Web Works
 **Format:** Guided lab using a real, purchased domain and a real deployed site
-**Prerequisite:** None — this is the foundational module in the sequence
+**Prerequisite:** Module 0 — Before You Start (you'll need the GitHub Pages site you publish there)
 **Leads into:** Module 2 — Network & Application Security Literacy (Chrome DevTools)
 
 **Sequencing note:** This module comes first by design. DNS resolution is the first thing that happens in any web request — before a TCP connection, before TLS, before any HTTP traffic exists to inspect. Learners who understand how a domain resolves to a server *before* they open the Network tab will immediately understand what the "DNS Lookup" phase of a waterfall chart represents, rather than encountering it as an unexplained colored bar.
@@ -25,7 +25,7 @@ By the end of this module, a learner should be able to:
 3. Explain what a **CNAME record** is, when it's used instead of an A record, and why DNS rules forbid CNAME at the root/apex domain
 4. Explain what an **ALIAS/ANAME record** is and why it exists as a workaround for the CNAME-at-apex restriction
 5. Explain DNS **wildcard records** (*) and the precedence rule that an exact match always wins over a wildcard match
-6. Explain why a **CAA record** exists and how it relates to the TLS certificate/chain-of-trust concepts from the previous module
+6. Explain why a **CAA record** exists and how it relates to the TLS certificate/chain-of-trust concepts you'll explore in Module 2
 7. Explain **DNS propagation** — why changes aren't instant, and what's actually happening while you wait
 8. Diagnose a "DNS check unsuccessful" error on a hosting platform and identify the likely cause
 9. Recognize when a default/auto-generated DNS record from a registrar could silently conflict with an intended configuration, and know how the exact-match-overrides-default behavior resolves it — even when the platform won't let you delete the default outright
@@ -82,7 +82,7 @@ GitHub's own documentation actively warns against relying on wildcard DNS record
 
 ### CAA Records — connecting back to TLS
 
-CAA (Certification Authority Authorization) records restrict *which* certificate authorities are allowed to issue TLS certificates for a domain. Seeing an entry like `0 issue "letsencrypt.org"` is the DNS-level counterpart to the certificate chain-of-trust work from the previous module — it's the domain owner pre-authorizing a specific CA (in this case, the same Let's Encrypt CA GitHub Pages uses to auto-provision HTTPS).
+CAA (Certification Authority Authorization) records restrict *which* certificate authorities are allowed to issue TLS certificates for a domain. Seeing an entry like `0 issue "letsencrypt.org"` is the DNS-level counterpart to the certificate chain-of-trust work you'll do in Module 2 — it's the domain owner pre-authorizing a specific CA (in this case, the same Let's Encrypt CA GitHub Pages uses to auto-provision HTTPS).
 
 ### DNS Propagation — why nothing happens right away
 

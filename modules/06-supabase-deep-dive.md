@@ -3,7 +3,7 @@
 ## Module 6: Supabase Deep Dive — Your First Cloud Database
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Backend & Databases
+**Track:** 2 — Backend & Databases
 **Format:** Hands-on lab using the retire-time Supabase project as the working example
 **Prerequisite:** Module 5 — Databases 101 (SQL fundamentals, tables, foreign keys)
 **Leads into:** Module 7 — Authentication (Supabase Auth is part of the same platform); Module 8 — Serverless Edge Functions
@@ -14,7 +14,7 @@
 
 The standard introduction to Supabase says: "open source Firebase alternative." That framing is backwards for learning purposes — it defines Supabase by what it's *not* rather than what it is. This module takes a different approach: Supabase is a PostgreSQL database with four things built on top of it (a REST/GraphQL API, authentication, file storage, and serverless Edge Functions) — and you can use each layer independently or together.
 
-This module is built from the retire-time project (project ID: vsnmevfikdxszojxybtk), which uses all four layers: the database for user data, auth for Google sign-in, storage for future file uploads, and Edge Functions for the price-alert system. Every concept here is connected to code that actually ran in production.
+This module is built from the retire-time project (a live Supabase project), which uses all four layers: the database for user data, auth for Google sign-in, storage for future file uploads, and Edge Functions for the price-alert system. Every concept here is connected to code that actually ran in production.
 
 ## Learning Objectives
 
@@ -123,7 +123,7 @@ SELECT cron.schedule(
   '*/15 9-16 * * 1-5',  -- every 15 min, 9am-4pm, Mon-Fri
   $$
   SELECT net.http_post(
-    url := 'https://vsnmevfikdxszojxybtk.supabase.co/functions/v1/price-alerts',
+    url := 'https://<your-project-ref>.supabase.co/functions/v1/price-alerts',
     headers := '{"Content-Type":"application/json","x-cron-secret":"..."}',
     body := '{"action":"check_prices"}'
   );
@@ -231,4 +231,4 @@ The values are set in the Supabase dashboard (Edge Functions → Manage Secrets)
 - Consider adding a section on the Supabase service role key vs. the anon key — this distinction is frequently confused and has real security implications (the service role key bypasses RLS entirely)
 - The Edge Function deploy tooling changed during the retire-time build — worth noting that the Supabase MCP tool (`deploy_edge_function`) is the preferred approach in an AI-assisted development workflow, while the CLI is preferred for local development
 - Consider pairing this module with Module 7 (Authentication) in a single lab session, since auth and RLS are tightly coupled — you need a signed-in user to test `auth.uid()` policies meaningfully
-- Source sessions: retire-time Supabase project (vsnmevfikdxszojxybtk), price-alerts Edge Function deployment, pg_cron setup for market-hours price checking, admin_get_users() and admin_get_analytics() SECURITY DEFINER functions, profiles_role_check constraint migration
+- Source sessions: retire-time Supabase project, price-alerts Edge Function deployment, pg_cron setup for market-hours price checking, admin_get_users() and admin_get_analytics() SECURITY DEFINER functions, profiles_role_check constraint migration

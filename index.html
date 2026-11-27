@@ -4,7 +4,8 @@ title: Learn how modern software really works
 body_class: is-home
 ---
 {%- assign core_count = 0 -%}
-{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless m.extra -%}{%- assign core_count = core_count | plus: 1 -%}{%- endunless -%}{%- endfor -%}{%- endfor -%}
+{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless m.extra or m.prereq -%}{%- assign core_count = core_count | plus: 1 -%}{%- endunless -%}{%- endfor -%}{%- endfor -%}
+{%- assign start_url = '/modules/00-before-you-start-github.html' | relative_url -%}
 
 <section class="hero">
   <div class="container hero-inner">
@@ -13,8 +14,8 @@ body_class: is-home
       <h1>Understand the tech.<br><span class="accent">Build with confidence.</span></h1>
       <p class="hero-lede">A plain-language curriculum that teaches how websites and apps actually work — using real projects that were really built and shipped. Made for transitioning veterans and anyone starting fresh.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="{{ '/modules/01-dns-domain-configuration.html' | relative_url }}" data-resume>
-          <span data-resume-label>Start Module 1</span> {% include icon.html name="arrow-right" size=20 %}
+        <a class="btn btn-primary btn-lg" href="{{ start_url }}" data-resume>
+          <span data-resume-label>Start here</span> {% include icon.html name="arrow-right" size=20 %}
         </a>
         <a class="btn btn-ghost btn-lg" href="#path">See all {{ core_count }} modules</a>
       </div>
@@ -27,7 +28,7 @@ body_class: is-home
       </div>
       <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{ core_count }}" aria-valuenow="0" data-progress-bar><span></span></div>
       <ol class="hero-steps">
-        {%- for d in site.data.curriculum.domains -%}
+        {%- for d in site.data.curriculum.domains -%}{%- if d.id == 0 -%}{%- continue -%}{%- endif -%}
         <li class="domain-{{ d.id }}">
           <span class="step-icon">{% include icon.html name=d.icon size=20 %}</span>
           <span class="step-text"><strong>{{ d.name }}</strong><small>{{ d.subtitle }}</small></span>
@@ -72,10 +73,23 @@ body_class: is-home
     <div class="section-head">
       <p class="eyebrow">The learning path</p>
       <h2>Five tracks, one step at a time</h2>
-      <p class="section-lede">Go in order the first time through — each module builds on the one before it.</p>
+      <p class="section-lede">New to all of this? Start with the setup guide, then go in order — each module builds on the one before it.</p>
     </div>
 
     {%- for d in site.data.curriculum.domains -%}
+    {%- if d.id == 0 -%}{%- assign m = d.modules[0] -%}
+    <a class="start-card" href="{{ m.file | replace: '.md', '.html' | relative_url }}" data-module-card="{{ m.file }}">
+      <span class="start-icon">{% include icon.html name="github" size=30 %}</span>
+      <span class="start-text">
+        <span class="start-eyebrow">Start here · {{ d.name }}</span>
+        <span class="start-title">{{ m.title }}</span>
+        <span class="start-blurb">{{ m.blurb }} {{ d.intro }}</span>
+      </span>
+      <span class="start-go"><span class="card-check" aria-hidden="true">{% include icon.html name="check" size=14 %}</span>Open {% include icon.html name="arrow-right" size=18 %}</span>
+      <span class="sr-only" data-card-status></span>
+    </a>
+    {%- continue -%}
+    {%- endif -%}
     <div class="track domain-{{ d.id }}" id="track-{{ d.id }}">
       <div class="track-head">
         <span class="track-icon">{% include icon.html name=d.icon size=26 %}</span>
@@ -128,15 +142,15 @@ body_class: is-home
     <div class="cta-band">
       <div>
         <h2>Ready when you are.</h2>
-        <p>Module 1 takes you from typing a web address to understanding exactly where it goes.</p>
+        <p>Start with a free GitHub account and your own live website — about 90 minutes, all in your browser.</p>
       </div>
-      <a class="btn btn-light btn-lg" href="{{ '/modules/01-dns-domain-configuration.html' | relative_url }}" data-resume>
-        <span data-resume-label>Start Module 1</span> {% include icon.html name="arrow-right" size=20 %}
+      <a class="btn btn-light btn-lg" href="{{ start_url }}" data-resume>
+        <span data-resume-label>Start here</span> {% include icon.html name="arrow-right" size=20 %}
       </a>
     </div>
   </div>
 </section>
 
 <script id="vt-path" type="application/json">
-[{%- assign first = true -%}{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless first -%},{%- endunless -%}{%- assign first = false -%}{"file":{{ m.file | jsonify }},"url":{{ m.file | replace: '.md', '.html' | relative_url | jsonify }},"num":{{ m.num | jsonify }},"title":{{ m.title | jsonify }},"domain":{{ d.id }},"extra":{% if m.extra %}true{% else %}false{% endif %}}{%- endfor -%}{%- endfor -%}]
+[{%- assign first = true -%}{%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- unless first -%},{%- endunless -%}{%- assign first = false -%}{"file":{{ m.file | jsonify }},"url":{{ m.file | replace: '.md', '.html' | relative_url | jsonify }},"num":{{ m.num | jsonify }},"title":{{ m.title | jsonify }},"domain":{{ d.id }},"extra":{% if m.extra %}true{% else %}false{% endif %},"prereq":{% if m.prereq %}true{% else %}false{% endif %}}{%- endfor -%}{%- endfor -%}]
 </script>

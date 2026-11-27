@@ -3,7 +3,7 @@
 ## Module 10: Web Push Notifications — Reaching Users Off-Site
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025-2026
-**Domain:** Modern Web App Features
+**Track:** 3 — Modern Web App Features
 **Format:** Guided lab using retire-time.com's price alert system
 **Prerequisite:** Module 9 (Progressive Web Apps), Module 8 (Serverless Functions), Module 6 (Supabase Deep Dive)
 **Leads into:** Module 11 — Scheduled Jobs

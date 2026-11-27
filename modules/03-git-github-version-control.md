@@ -3,9 +3,9 @@
 ## Module 3: Git & GitHub — Version Control for Non-Developers
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Foundations — How the Web Works
+**Track:** 1 — Foundations: How the Web Works
 **Format:** Guided lab using a real project repository with a full commit history
-**Prerequisite:** None required, though Module 4 (Frontend Fundamentals) is a natural companion
+**Prerequisite:** Module 0 — Before You Start (hands-on setup and your first pull requests). Module 4 (Frontend Fundamentals) is a natural companion
 **Leads into:** Module 5 — Databases 101 (all subsequent modules assume basic git/GitHub fluency)
 
 **Sequencing note:** Every other module in this curriculum involves pushing code to a repository. Git fluency isn't a detour — it's the foundation. A learner who understands branching before writing their first line of code will have a dramatically easier time with every collaborative or iterative project that follows.
@@ -88,7 +88,7 @@ Reading commit history is a core skill: understanding why a piece of code exists
 
 **Goal:** Complete the full branch → commit → PR → merge cycle on a real project.
 
-**Prerequisites:** A GitHub account and a repository you have write access to (or a fork of one you don't).
+**Prerequisites:** A GitHub account and a repository you have write access to (or a fork of one you don't). If you completed Module 0, your `my-first-site` repository works perfectly — this lab repeats that loop, this time paying attention to *why* each step exists.
 
 ### Steps
 

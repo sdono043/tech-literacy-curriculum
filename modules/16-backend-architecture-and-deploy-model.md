@@ -3,7 +3,7 @@
 ## Module 16: Backend Architecture & the Deploy Model — How the Pieces Fit, and What "Deploy" Actually Touches
 
 **Status:** Draft v1 — built from a live hands-on session, November 2026
-**Domain:** Backend & Databases
+**Track:** 5 — Architecture, Security & Shipping
 **Format:** Guided reading + hands-on "map your own app" labs
 **Prerequisite:** Module 5 — Databases & SQL Fundamentals; Module 7 — Authentication; Module 8 — Serverless Edge Functions (this module zooms out from the individual pieces to the whole system)
 **Leads into:** Module 9 — Progressive Web Apps & Caching (the frontend/caching layer that sits on top of this backend)

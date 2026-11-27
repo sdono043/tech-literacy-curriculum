@@ -7,13 +7,19 @@ Every concept here was learned by actually building something: a retirement plan
 
 ## How to Use This Curriculum
 
-Modules are sequenced but not strictly linear — each has explicit prerequisites listed in its header. The four domains below group modules by theme; you can enter at any domain once prerequisites are met.
+Modules are sequenced but not strictly linear — each has explicit prerequisites listed in its header. The five tracks below group modules by theme; you can enter at any track once its prerequisites are met.
 
 **Format:** Each module follows the same structure — *Why This Module Exists* (the real motivation), *Learning Objectives* (specific and testable), *Core Concepts* (explanation-first, then mechanics), *Labs* (hands-on steps against real or realistic systems), *Assessment Checklist* (self-verify before moving on), and *Notes for Build-Out* (what comes next and what's not yet written).
 
 ---
 
-## Domain 1 — Foundations: How the Web Works
+## Start Here — Before You Start
+
+0. [Set Up GitHub & Ship Your First Change](modules/00-before-you-start-github.md) — Create and secure a GitHub account, publish a real website with GitHub Pages, and practice branch → commit → pull request → merge, including resolving a merge conflict. All in the browser, about 90 minutes. Module 1 uses the site you publish here.
+
+---
+
+## Track 1 — Foundations: How the Web Works
 
 No prerequisites. Start here.
 
@@ -24,9 +30,9 @@ No prerequisites. Start here.
 
 ---
 
-## Domain 2 — Backend & Databases
+## Track 2 — Backend & Databases
 
-Prerequisite: Domain 1 (or equivalent comfort with how the web works).
+Prerequisite: Track 1 (or equivalent comfort with how the web works).
 
 5. [Databases 101 — From Spreadsheets to SQL](modules/05-databases-sql-fundamentals.md) — Why databases exist, how relational tables work, what SQL does. No prior database knowledge assumed.
 6. [Supabase Deep Dive](modules/06-supabase-deep-dive.md) — Postgres + API layer + Auth + Edge Functions + pg_cron. Tables, Row Level Security, migrations, and scheduled jobs — with real retire-time examples.
@@ -37,9 +43,9 @@ Prerequisite: Domain 1 (or equivalent comfort with how the web works).
 
 ---
 
-## Domain 3 — Modern Web App Features
+## Track 3 — Modern Web App Features
 
-Prerequisite: Domain 2 (especially Module 6, Supabase).
+Prerequisite: Track 2 (especially Module 6, Supabase).
 
 9. [Progressive Web Apps — Websites as Apps](modules/09-progressive-web-apps.md) — Web app manifests, service workers, Add to Home Screen. iOS vs Android differences, icon requirements, and four iterations of a real PWA icon.
 10. [Push Notifications — Reaching Users Off-Site](modules/10-push-notifications.md) — VAPID keys, PushManager, service workers, server-side push with web-push. Built from retire-time's price alert notification system.
@@ -48,9 +54,9 @@ Prerequisite: Domain 2 (especially Module 6, Supabase).
 
 ---
 
-## Domain 4 — Building Real Products
+## Track 4 — Building Real Products
 
-Prerequisite: Domains 1–3 (or equivalent).
+Prerequisite: Tracks 1–3 (or equivalent).
 
 13. [Role-Based Access Control — Admin vs. User](modules/13-role-based-access-control.md) — RBAC, why client-side checks are UX not security, SECURITY DEFINER functions, CHECK constraints, admin console design.
 14. [Analytics & Dashboards — Understanding Your Users](modules/14-analytics-understanding-your-users.md) — Activation, retention, feature adoption, ghost users, dormancy, top tickers. Writing SQL that answers real product questions.
@@ -58,9 +64,9 @@ Prerequisite: Domains 1–3 (or equivalent).
 
 ---
 
-## Domain 5 — Architecture, Security & Shipping
+## Track 5 — Architecture, Security & Shipping
 
-Prerequisite: Domains 1–4 (or equivalent). These modules come from the **windsor-swan** neighborhood site — a GitHub Pages + **Firebase** stack, a deliberate counterpoint to the Supabase-based projects above, so the same ideas show up on a second vendor. Module 20 is the capstone that ties the whole curriculum together.
+Prerequisite: Tracks 1–4 (or equivalent). These modules come from the **windsor-swan** neighborhood site — a GitHub Pages + **Firebase** stack, a deliberate counterpoint to the Supabase-based projects above, so the same ideas show up on a second vendor. Module 20 is the capstone that ties the whole curriculum together.
 
 16. [Backend Architecture & the Deploy Model](modules/16-backend-architecture-and-deploy-model.md) — The whole-system map (frontend, functions, database, file store, rules, auth), the two paths to data (direct vs. via a function), and the deploy matrix: what "deploy" actually touches.
 17. [Web Application Vulnerabilities — XSS & Input Validation](modules/17-web-vulnerabilities-xss.md) — A real stored cross-site-scripting bug, tested safely against your own app; escaping, input validation, and the attribute-injection class.
@@ -74,6 +80,7 @@ Prerequisite: Domains 1–4 (or equivalent). These modules come from the **winds
 
 | Module | Status |
 |--------|--------|
+| M00 Before You Start — Set Up GitHub | 🔄 Draft |
 | M01 DNS & Domain Configuration | ✅ Published |
 | M02 Network & App Security | ✅ Published |
 | M03 Git & GitHub | 🔄 Draft |
@@ -102,10 +109,10 @@ Prerequisite: Domains 1–4 (or equivalent). These modules come from the **winds
 
 This curriculum is built from real sessions on real projects:
 
-- **retire-time** (`sdono043/cyber-stock-monitor`) — Retirement planning and portfolio tracking PWA. Source for Domains 2–4.
+- **retire-time** (`sdono043/cyber-stock-monitor`) — Retirement planning and portfolio tracking PWA. Source for Tracks 2–4.
 - **vet-tech.org** — Domain purchase and DNS configuration. Source for Module 1.
 - **sleddawg-fitness** — Strava-connected training dashboard with AI plan generation. Source for Module 2 DevTools audit lab.
-- **windsor-swan** — Neighborhood community site on GitHub Pages + Firebase. Source for Module 2's live-data verification lab and for all of Domain 5 (Modules 16–20).
+- **windsor-swan** — Neighborhood community site on GitHub Pages + Firebase. Source for Module 2's live-data verification lab and for all of Track 5 (Modules 16–20).
 
 ---
 

@@ -32,7 +32,7 @@ body_class: is-module
     <div class="module-hero-row">
       <div class="module-badge domain-{{ cur_domain.id }}" aria-hidden="true">{% if cur.extra %}{% include icon.html name="book" size=26 %}{% else %}{{ cur.num }}{% endif %}</div>
       <div>
-        <p class="eyebrow">{% if cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }} of 20{% endif %} · {{ cur_domain.name }}</p>
+        <p class="eyebrow">{% if cur.prereq %}Start here{% elsif cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }} of 20{% endif %} · {{ cur_domain.name }}</p>
         <h1 class="module-title">{{ cur.title }}</h1>
         <p class="module-lede">{{ cur.blurb }}</p>
         <div class="module-actions">
@@ -59,7 +59,9 @@ body_class: is-module
   </aside>
 
   <article class="prose prose-module" data-module-body>
-    {{ content }}
+    {%- comment -%} "Notes for Curriculum Build-Out" is for authors, not learners: drop it from the site. It stays in the Markdown on GitHub. {%- endcomment -%}
+    {%- assign learner_content = content | split: '<h2 id="notes-for-curriculum-build-out' | first -%}
+    {{ learner_content }}
 
     {%- if cur -%}
     <div class="finish-card">

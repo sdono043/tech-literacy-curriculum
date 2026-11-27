@@ -3,7 +3,7 @@
 ## Module 14: Analytics & Dashboards — Understanding Your Users
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Building Real Products
+**Track:** 4 — Building Real Products
 **Format:** Guided lab using a real admin analytics dashboard
 **Prerequisite:** Module 5 (Databases 101), Module 13 (Role-Based Access Control)
 **Leads into:** Module 15 — Financial App Domain Concepts

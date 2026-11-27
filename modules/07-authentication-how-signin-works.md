@@ -3,7 +3,7 @@
 ## Module 7: Authentication — How Sign-In Actually Works
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Backend & Databases
+**Track:** 2 — Backend & Databases
 **Format:** Conceptual walkthrough with labs using Supabase Auth and browser DevTools
 **Prerequisite:** Module 6 — Supabase Deep Dive (understanding RLS and the database layer)
 **Leads into:** Module 13 — Role-Based Access Control (admin vs. user, server-side enforcement)

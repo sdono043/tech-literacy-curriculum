@@ -3,7 +3,7 @@
 ## Module 11: Scheduled Jobs — Automation Inside the Database
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025-2026
-**Domain:** Modern Web App Features
+**Track:** 3 — Modern Web App Features
 **Format:** Guided lab using retire-time.com's price alert scheduler
 **Prerequisite:** Module 6 (Supabase Deep Dive), Module 8 (Serverless Functions)
 **Leads into:** Module 12 — Data Privacy & Sensitive Data

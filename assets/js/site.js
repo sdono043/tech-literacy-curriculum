@@ -56,7 +56,8 @@
     });
 
     if (!path.length) return;
-    var core = path.filter(function (m) { return !m.extra; });
+    var core = path.filter(function (m) { return !m.extra && !m.prereq; });
+    var prereqs = path.filter(function (m) { return m.prereq; });
     var count = core.filter(function (m) { return isDone(m.file); }).length;
 
     var countEl = document.querySelector('[data-progress-count]');
@@ -76,12 +77,15 @@
     });
 
     // "Continue" button points at the first unfinished core module
-    var nextUp = core.filter(function (m) { return !isDone(m.file); })[0];
+    var started = count > 0 || prereqs.some(function (m) { return isDone(m.file); });
+    var nextUp = prereqs.concat(core).filter(function (m) { return !isDone(m.file); })[0];
     document.querySelectorAll('[data-resume]').forEach(function (a) {
       var label = a.querySelector('[data-resume-label]');
       if (!nextUp) { a.href = '#path'; if (label) label.textContent = 'Review the modules'; return; }
       a.href = nextUp.url;
-      if (label) label.textContent = count ? 'Continue: Module ' + Number(nextUp.num) : 'Start Module 1';
+      if (!label) return;
+      if (nextUp.prereq) label.textContent = 'Start here';
+      else label.textContent = started ? 'Continue: Module ' + Number(nextUp.num) : 'Start Module 1';
     });
   }
 

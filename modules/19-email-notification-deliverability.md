@@ -3,7 +3,7 @@
 ## Module 19: Email & Notification Deliverability — Getting a Message to a Person (and the Right to Send It)
 
 **Status:** Draft v1 — built from a live hands-on session, November 2026
-**Domain:** A + D — Networking / Data & Product
+**Track:** 5 — Architecture, Security & Shipping
 **Format:** Guided reading + deliverability and ethics labs
 **Prerequisite:** Module 8 (Serverless Edge Functions, incl. secrets)
 **Leads into:** Module 20 (Capstone)

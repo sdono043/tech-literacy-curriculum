@@ -3,7 +3,7 @@
 ## Module 5: Databases 101 — From Spreadsheets to SQL
 
 **Status:** Draft v1 — built from live hands-on sessions, 2025–2026
-**Domain:** Backend & Databases
+**Track:** 2 — Backend & Databases
 **Format:** Conceptual walkthrough with hands-on SQL lab using retire-time schema
 **Prerequisite:** Module 4 — Frontend Fundamentals (understanding what data the frontend needs)
 **Leads into:** Module 6 — Supabase Deep Dive (applying SQL concepts in a real cloud database)
