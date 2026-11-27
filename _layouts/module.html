@@ -20,6 +20,9 @@ body_class: is-module
 {%- if idx > 0 -%}{%- assign prev = flat[prev_i] -%}{%- endif -%}
 {%- assign next_i = idx | plus: 1 -%}
 {%- if idx >= 0 and next_i < total -%}{%- assign next = flat[next_i] -%}{%- endif -%}
+{%- comment -%} "Notes for Curriculum Build-Out" is for authors, not learners: drop it from the site. It stays in the Markdown on GitHub. {%- endcomment -%}
+{%- assign learner_content = content | split: '<h2 id="notes-for-curriculum-build-out' | first -%}
+{%- assign read_min = learner_content | strip_html | number_of_words | divided_by: 200 | at_least: 1 -%}
 
 <div class="module-hero">
   <div class="container">
@@ -44,6 +47,26 @@ body_class: is-module
         </div>
       </div>
     </div>
+    {%- if cur.level -%}
+    <dl class="glance" aria-label="This module at a glance">
+      <div class="glance-item">
+        <dt>Level</dt>
+        <dd><span class="level-dots level-{{ cur.level | downcase }}" aria-hidden="true"><i></i><i></i><i></i></span>{{ cur.level }}</dd>
+      </div>
+      <div class="glance-item">
+        <dt>Time</dt>
+        <dd>About {{ read_min }} min of reading{% if cur.labs > 0 %} + {{ cur.labs }} hands-on {% if cur.labs == 1 %}lab{% else %}labs{% endif %}{% endif %}</dd>
+      </div>
+      <div class="glance-item">
+        <dt>Cost</dt>
+        <dd>{{ cur.cost }}</dd>
+      </div>
+      <div class="glance-item glance-wide">
+        <dt>You'll need</dt>
+        <dd><ul>{% for n in cur.needs %}<li>{{ n }}</li>{% endfor %}</ul></dd>
+      </div>
+    </dl>
+    {%- endif -%}
     {%- else -%}
     <h1 class="module-title">{{ page.title }}</h1>
     {%- endif -%}
@@ -58,16 +81,14 @@ body_class: is-module
     </div>
   </aside>
 
-  <article class="prose prose-module" data-module-body>
-    {%- comment -%} "Notes for Curriculum Build-Out" is for authors, not learners: drop it from the site. It stays in the Markdown on GitHub. {%- endcomment -%}
-    {%- assign learner_content = content | split: '<h2 id="notes-for-curriculum-build-out' | first -%}
+  <article class="prose prose-module" data-module-body data-module-file="{{ page.path }}">
     {{ learner_content }}
 
     {%- if cur -%}
     <div class="finish-card">
       <div>
         <h2>Finished this module?</h2>
-        <p>Run through the assessment checklist above. When you can do everything on it, mark the module complete and keep going.</p>
+        <p data-finish-text>Tick off the self-check above. When you can do everything on it, mark the module complete and keep going.</p>
       </div>
       <button class="btn btn-primary" type="button" data-complete="{{ cur.file }}">
         <span class="when-todo">{% include icon.html name="check" size=18 %} Mark as complete</span>
@@ -97,3 +118,5 @@ body_class: is-module
     </nav>
   </article>
 </div>
+<script id="vt-glossary" type="application/json">{{ site.data.glossary | jsonify }}</script>
+<script>window.VT_GLOSSARY_URL = {{ '/glossary.html' | relative_url | jsonify }};</script>

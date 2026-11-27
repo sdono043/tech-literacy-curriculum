@@ -1,6 +1,9 @@
 # Single source of truth for the learning path shown on the home page,
 # the module sidebar, and the previous/next links at the bottom of each module.
 # status: published | draft
+# level: Beginner | Intermediate | Advanced
+# labs: number of hands-on labs; needs: what a learner must have; cost: plain-English cost
+# Reading time on each module page is calculated automatically from the text.
 
 domains:
   - id: 0
@@ -14,6 +17,13 @@ domains:
         title: Set Up GitHub & Ship Your First Change
         blurb: Create your account, publish a real website, and practice the branch → pull request → merge loop — including fixing a merge conflict.
         status: draft
+        level: Beginner
+        labs: 7
+        needs:
+          - "A web browser"
+          - "An email address"
+          - "A phone for sign-in codes"
+        cost: "Free"
         prereq: true
 
   - id: 1
@@ -27,21 +37,44 @@ domains:
         title: DNS & Domain Configuration
         blurb: What actually happens when you type a web address — and how we pointed vet-tech.org at a real site.
         status: published
+        level: Beginner
+        labs: 1
+        needs:
+          - "Your GitHub Pages site from Module 0"
+          - "A domain name (optional — you can follow along without one)"
+        cost: "Free to follow along · a domain costs about $10–20 a year if you buy one"
       - num: "02"
         file: modules/02-network-appsec-literacy.md
         title: Network & App Security
         blurb: Open your browser's developer tools and see every request an app makes — including the ones it shouldn't.
         status: published
+        level: Beginner
+        labs: 5
+        needs:
+          - "Chrome or Edge (for DevTools)"
+          - "Your site from Module 0"
+        cost: "Free"
       - num: "03"
         file: modules/03-git-github-version-control.md
         title: Git & GitHub
         blurb: How code is saved, shared, and reviewed — and how a single click can publish a live website.
         status: draft
+        level: Beginner
+        labs: 2
+        needs:
+          - "Your GitHub account and practice repository from Module 0"
+        cost: "Free"
       - num: "04"
         file: modules/04-frontend-fundamentals.md
         title: Frontend Fundamentals
         blurb: The three languages every web page is made of, and how a browser turns them into what you see.
         status: draft
+        level: Beginner
+        labs: 3
+        needs:
+          - "A web browser"
+          - "A text editor, or GitHub's in-browser editor"
+        cost: "Free"
 
   - id: 2
     name: Backend & Databases
@@ -54,26 +87,53 @@ domains:
         title: Databases 101
         blurb: From spreadsheets to SQL — why databases exist and how to ask them questions.
         status: draft
+        level: Beginner
+        labs: 3
+        needs:
+          - "A free Supabase account (for the SQL editor)"
+        cost: "Free"
       - num: "06"
         file: modules/06-supabase-deep-dive.md
         title: Supabase Deep Dive
         blurb: Set up a real cloud database with sign-in, security rules, and scheduled jobs.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project"
+        cost: "Free tier"
       - num: "07"
         file: modules/07-authentication-how-signin-works.md
         title: How Sign-In Works
         blurb: What really happens when you click "Sign in with Google" — tokens, sessions, and trust.
         status: draft
+        level: Intermediate
+        labs: 2
+        needs:
+          - "Chrome or Edge (for DevTools)"
+          - "A free Supabase project with sign-in turned on"
+        cost: "Free tier"
       - num: "08"
         file: modules/08-serverless-edge-functions.md
         title: Serverless Functions
         blurb: Running code in the cloud without managing a server — and keeping secrets secret.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project"
+          - "The Supabase command-line tool"
+        cost: "Free tier"
       - num: "DD"
         file: modules/firestore-vs-supabase-comparison.md
         title: "Deep dive: Firestore vs. Supabase"
         blurb: Two popular databases side by side, and how to choose between them.
         status: draft
+        level: Intermediate
+        labs: 1
+        needs:
+          - "Nothing required — free Supabase and Firebase projects let you try the side-by-side labs"
+        cost: "Free tier"
         extra: true
 
   - id: 3
@@ -87,21 +147,43 @@ domains:
         title: Progressive Web Apps
         blurb: Turn a website into something people can install on their phone's home screen.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "Your GitHub Pages site"
+          - "A phone (iPhone or Android) to test installing it"
+        cost: "Free"
       - num: "10"
         file: modules/10-push-notifications.md
         title: Push Notifications
         blurb: Reach people when they're not on your site — built from a real price-alert system.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project"
+          - "A browser that allows notifications"
+        cost: "Free tier"
       - num: "11"
         file: modules/11-scheduled-jobs-automation.md
         title: Scheduled Jobs
         blurb: Make things happen automatically on a schedule, like checking prices every few minutes.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project"
+        cost: "Free tier"
       - num: "12"
         file: modules/12-data-privacy-sensitive-data.md
         title: Data Privacy
         blurb: Handling sensitive information like Social Security numbers — and what should never be stored.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project"
+        cost: "Free tier"
 
   - id: 4
     name: Building Real Products
@@ -114,16 +196,31 @@ domains:
         title: Admins vs. Users
         blurb: Who's allowed to see and do what — and why hiding a button isn't real security.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project with sign-in turned on"
+        cost: "Free tier"
       - num: "14"
         file: modules/14-analytics-understanding-your-users.md
         title: Analytics & Dashboards
         blurb: Answer real questions about how people use your app with simple, honest numbers.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A free Supabase project with some sample data"
+        cost: "Free tier"
       - num: "15"
         file: modules/15-financial-app-domain-concepts.md
         title: Financial App Concepts
         blurb: Capital gains, tax-loss harvesting, and turning real-world rules into working code.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "A web browser and a text editor (labs are small JavaScript exercises)"
+        cost: "Free"
 
   - id: 5
     name: Architecture, Security & Shipping
@@ -136,23 +233,49 @@ domains:
         title: How the Pieces Fit
         blurb: A map of a whole working system, and what "deploy" actually changes.
         status: draft
+        level: Advanced
+        labs: 5
+        needs:
+          - "An app of your own on Firebase or Supabase (your Module 0 site plus a free project works)"
+        cost: "Free tier"
       - num: "17"
         file: modules/17-web-vulnerabilities-xss.md
         title: Web Vulnerabilities (XSS)
         blurb: Find and fix a real security bug — safely, on your own app.
         status: draft
+        level: Advanced
+        labs: 3
+        needs:
+          - "An app of your own, with test accounts you control — only ever test apps you own"
+        cost: "Free"
       - num: "18"
         file: modules/18-data-pipelines-migration.md
         title: Data Pipelines & Migration
         blurb: Move real data into a new system, and learn why matching "Jay" to "James" is hard.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "Pen and paper or a spreadsheet — these are planning labs"
+        cost: "Free"
       - num: "19"
         file: modules/19-email-notification-deliverability.md
         title: Email Deliverability
         blurb: Getting a message to a person's inbox — and earning the right to send it.
         status: draft
+        level: Intermediate
+        labs: 3
+        needs:
+          - "An email account you can view message headers in"
+        cost: "Free"
       - num: "20"
         file: modules/20-capstone-shipping-with-ai.md
         title: "Capstone: Shipping with AI"
         blurb: How someone with no coding background builds and ships real software with an AI partner.
         status: draft
+        level: Advanced
+        labs: 1
+        needs:
+          - "A GitHub account"
+          - "An AI coding assistant"
+        cost: "Free to paid, depending on the AI tool you use"

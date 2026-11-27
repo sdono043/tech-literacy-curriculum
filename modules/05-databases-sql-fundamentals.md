@@ -81,6 +81,33 @@ This tells the database: `user_id` in `positions` must always match an existing 
 
 This is what spreadsheets can't do: a cell that references another sheet has no enforcement. A foreign key is a contract the database upholds automatically.
 
+Here's how the retire-time tables connect. Each line is a foreign key: many positions (and plans) belong to one user's profile.
+
+```mermaid
+erDiagram
+  profiles ||--o{ positions : "owns"
+  profiles ||--o{ retirement_plans : "has"
+  profiles {
+    uuid id PK
+    text email
+    text role
+  }
+  positions {
+    uuid id PK
+    uuid user_id FK "points at profiles.id"
+    text ticker
+    numeric shares
+    numeric avg_cost
+    timestamptz created_at
+  }
+  retirement_plans {
+    uuid id PK
+    uuid user_id FK "points at profiles.id"
+  }
+```
+
+*How to read it: `PK` is the primary key, `FK` is a foreign key. The `||--o{` line means "one profile, zero or more positions." Only the key columns of `retirement_plans` are shown.*
+
 ### The Four SQL Operations
 
 SQL has four fundamental operations, often called CRUD (Create, Read, Update, Delete):

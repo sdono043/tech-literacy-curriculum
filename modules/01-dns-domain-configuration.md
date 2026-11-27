@@ -42,6 +42,26 @@ These are frequently the same company, which is exactly why it's confusing when 
 
 In this lab's real scenario: **Vercel** is the registrar *and* the DNS host, but **GitHub Pages** is the web host. That's why buying the domain didn't make the site "just work" — the DNS records had to be manually pointed at GitHub's infrastructure.
 
+Here's what happens when someone types the address, simplified:
+
+```mermaid
+sequenceDiagram
+  actor You as You (browser)
+  participant R as DNS resolver<br/>(your internet provider)
+  participant D as DNS host<br/>(Vercel's nameservers)
+  participant W as Web host<br/>(GitHub Pages)
+  You->>R: Where is vet-tech.org?
+  Note over R: Uses its saved copy if it has one<br/>(that's the TTL — and why changes take time)
+  R->>D: Where is vet-tech.org?
+  Note over D: The registrar (Vercel) told the internet<br/>these nameservers are in charge
+  D-->>R: A records: 185.199.108–111.153
+  R-->>You: 185.199.108.153
+  You->>W: Send me vet-tech.org
+  W-->>You: The site's files
+```
+
+*Three jobs, often three different companies: the registrar records who owns the name and which nameservers are in charge, the DNS host answers "where is it?", and the web host serves the files. (Real lookups pass through a few more servers in between; this is the part you configure.)*
+
 ### A Records — pointing the root domain at an IP
 
 An A record maps a domain name to an IPv4 address. GitHub Pages publishes four official, stable IP addresses for exactly this purpose:

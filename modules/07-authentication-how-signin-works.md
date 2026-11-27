@@ -42,6 +42,26 @@ When you click "Sign in with Google" on retire-time, here is exactly what happen
 4. **Supabase exchanges the code** for an access token and an ID token from Google. The ID token contains claims about you: your email address, your name, your Google user ID.
 5. **Supabase creates or looks up your user record**, and issues its own JWT — a Supabase session token that the app will use going forward. This is the token stored in the browser and sent with every API request.
 
+The same five steps as a picture — follow the arrows top to bottom:
+
+```mermaid
+sequenceDiagram
+  actor You as You (browser)
+  participant App as retire-time
+  participant Google as Google<br/>accounts.google.com
+  participant SB as Supabase Auth
+  You->>App: Click "Sign in with Google"
+  App->>You: Redirect to Google
+  You->>Google: Enter password, approve the app
+  Note over Google: Your password stays here.<br/>retire-time never sees it.
+  Google->>You: Redirect back to retire-time with a one-time code
+  You->>SB: retire-time hands the code to Supabase
+  SB->>Google: Exchange the code for tokens
+  Google-->>SB: ID token (email, name, Google ID)
+  SB-->>You: Supabase session JWT, saved in the browser
+  You->>App: Every request now carries the JWT
+```
+
 **The key insight:** retire-time never receives your Google password. It receives a signed certificate from Google that says "this person authenticated successfully, here is their email." This design is why OAuth exists — the app gets proof of identity without ever handling the credential that proves it.
 
 ### JWTs — What They Are and What They Contain

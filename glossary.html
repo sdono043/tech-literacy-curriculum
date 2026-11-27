@@ -1,0 +1,53 @@
+---
+layout: default
+title: Glossary
+body_class: is-glossary
+---
+{%- assign terms = site.data.glossary | sort_natural: "term" -%}
+{%- assign letters = "" -%}
+{%- for t in terms -%}{%- assign l = t.term | slice: 0 | upcase -%}{%- unless letters contains l -%}{%- assign letters = letters | append: l -%}{%- endunless -%}{%- endfor -%}
+
+<div class="module-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true">/</span><span>Glossary</span></nav>
+    <p class="eyebrow">Plain-English glossary</p>
+    <h1 class="module-title">Words you'll run into</h1>
+    <p class="module-lede">Every term in one place, explained without jargon. On module pages, terms like these are underlined — hover or tap one to see its meaning.</p>
+    <label class="gloss-search">
+      <span class="sr-only">Filter the glossary</span>
+      <input type="search" placeholder="Filter terms — try “DNS” or “key”" data-gloss-filter autocomplete="off">
+    </label>
+  </div>
+</div>
+
+<div class="container page-wrap">
+  <nav class="gloss-letters" aria-label="Jump to letter">
+    {%- assign ls = letters | split: "" -%}
+    {%- for l in ls -%}<a href="#letter-{{ l }}">{{ l }}</a>{%- endfor -%}
+  </nav>
+  <div class="gloss-list">
+    {%- for l in ls -%}
+    <section class="gloss-group" id="letter-{{ l }}" data-gloss-group>
+      <h2>{{ l }}</h2>
+      <dl>
+        {%- for t in terms -%}{%- assign tl = t.term | slice: 0 | upcase -%}{%- if tl == l -%}
+        {%- assign mod = nil -%}
+        {%- for d in site.data.curriculum.domains -%}{%- for m in d.modules -%}{%- if m.file == t.module -%}{%- assign mod = m -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+        <div class="gloss-entry" id="{{ t.term | slugify }}" data-gloss-text="{{ t.term | downcase }} {{ t.aliases | join: ' ' | downcase }} {{ t.def | downcase | escape }}">
+          {%- assign term_low = t.term | downcase -%}{%- assign aka = "" | split: "" -%}
+          {%- for a in t.aliases -%}{%- assign al = a | downcase -%}{%- unless al contains term_low -%}{%- assign aka = aka | push: a -%}{%- endunless -%}{%- endfor -%}
+          <dt>{{ t.term }}{% if aka.size > 0 %} <span class="gloss-aka">also: {{ aka | join: ", " }}</span>{% endif %}</dt>
+          <dd>
+            <p>{{ t.def }}</p>
+            {%- if mod -%}
+            <a class="gloss-more" href="{{ mod.file | replace: '.md', '.html' | relative_url }}">Learn more: {% if mod.prereq %}Start here{% elsif mod.extra %}Deep dive{% else %}Module {{ mod.num | plus: 0 }}{% endif %} — {{ mod.title }} {% include icon.html name="arrow-right" size=14 %}</a>
+            {%- endif -%}
+          </dd>
+        </div>
+        {%- endif -%}{%- endfor -%}
+      </dl>
+    </section>
+    {%- endfor -%}
+    <p class="gloss-empty" data-gloss-empty hidden>No terms match. Try a shorter word.</p>
+  </div>
+</div>

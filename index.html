@@ -108,6 +108,7 @@ body_class: is-home
           </span>
           <span class="card-title">{{ m.title }}</span>
           <span class="card-blurb">{{ m.blurb }}</span>
+          <span class="card-meta"><span class="level-dots level-{{ m.level | downcase }}" aria-hidden="true"><i></i><i></i><i></i></span>{{ m.level }} · {{ m.labs }} {% if m.labs == 1 %}lab{% else %}labs{% endif %}</span>
           <span class="card-foot">
             {%- if m.status == "published" -%}<span class="chip chip-pub">Published</span>{%- else -%}<span class="chip chip-draft">Draft</span>{%- endif -%}
             <span class="card-go">Open {% include icon.html name="arrow-right" size=16 %}</span>
