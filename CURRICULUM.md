@@ -36,6 +36,7 @@ Status key: ✅ published · ✍️ drafted · 🔜 planned
 
 | # | Module | Track | Status | Sourced from |
 |---|---|---|---|---|
+| 00 | [Before You Start — Set Up GitHub & Ship Your First Change](modules/00-before-you-start-github.md) | Start here | ✍️ | This site's own build: branch → pull request → merge → live on GitHub Pages |
 | 01 | [DNS & Domain Configuration](modules/01-dns-domain-configuration.md) | 1 | ✅ | Buying `vet-tech.org`, pointing it at GitHub Pages; the custom-domain work on `windsor-swan` |
 | 02 | [Network & Application Security Literacy](modules/02-network-appsec-literacy.md) | 1 | ✅ | Chrome DevTools against `navy2010.com`, `sleddawg-fitness`, `windsor-swan` |
 | 03 | [Git & GitHub — Version Control](modules/03-git-github-version-control.md) | 1 | ✍️ | `retire-time` — branches, commits, pull requests, and GitHub Pages auto-deploy |

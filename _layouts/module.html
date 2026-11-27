@@ -32,7 +32,7 @@ body_class: is-module
     <div class="module-hero-row">
       <div class="module-badge domain-{{ cur_domain.id }}" aria-hidden="true">{% if cur.extra %}{% include icon.html name="book" size=26 %}{% else %}{{ cur.num }}{% endif %}</div>
       <div>
-        <p class="eyebrow">{% if cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }} of 20{% endif %} · {{ cur_domain.name }}</p>
+        <p class="eyebrow">{% if cur.prereq %}Start here{% elsif cur.extra %}Deep dive{% else %}Module {{ cur.num | plus: 0 }} of 20{% endif %} · {{ cur_domain.name }}</p>
         <h1 class="module-title">{{ cur.title }}</h1>
         <p class="module-lede">{{ cur.blurb }}</p>
         <div class="module-actions">

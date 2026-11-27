@@ -3,6 +3,19 @@
 # status: published | draft
 
 domains:
+  - id: 0
+    name: Before You Start
+    subtitle: Set up your tools
+    icon: github
+    intro: Do this first — about 90 minutes, all in your browser, all free.
+    modules:
+      - num: "00"
+        file: modules/00-before-you-start-github.md
+        title: Set Up GitHub & Ship Your First Change
+        blurb: Create your account, publish a real website, and practice the branch → pull request → merge loop — including fixing a merge conflict.
+        status: draft
+        prereq: true
+
   - id: 1
     name: Foundations
     subtitle: How the web works

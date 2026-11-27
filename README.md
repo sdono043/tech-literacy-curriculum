@@ -13,6 +13,12 @@ Modules are sequenced but not strictly linear — each has explicit prerequisite
 
 ---
 
+## Start Here — Before You Start
+
+0. [Set Up GitHub & Ship Your First Change](modules/00-before-you-start-github.md) — Create and secure a GitHub account, publish a real website with GitHub Pages, and practice branch → commit → pull request → merge, including resolving a merge conflict. All in the browser, about 90 minutes. Module 1 uses the site you publish here.
+
+---
+
 ## Track 1 — Foundations: How the Web Works
 
 No prerequisites. Start here.
@@ -74,6 +80,7 @@ Prerequisite: Tracks 1–4 (or equivalent). These modules come from the **windso
 
 | Module | Status |
 |--------|--------|
+| M00 Before You Start — Set Up GitHub | 🔄 Draft |
 | M01 DNS & Domain Configuration | ✅ Published |
 | M02 Network & App Security | ✅ Published |
 | M03 Git & GitHub | 🔄 Draft |

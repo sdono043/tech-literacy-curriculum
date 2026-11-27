@@ -5,7 +5,7 @@
 **Status:** Draft v1 — built from a live hands-on session, July 2026
 **Track:** 1 — Foundations: How the Web Works
 **Format:** Guided lab using a real, purchased domain and a real deployed site
-**Prerequisite:** None — this is the foundational module in the sequence
+**Prerequisite:** Module 0 — Before You Start (you'll need the GitHub Pages site you publish there)
 **Leads into:** Module 2 — Network & Application Security Literacy (Chrome DevTools)
 
 **Sequencing note:** This module comes first by design. DNS resolution is the first thing that happens in any web request — before a TCP connection, before TLS, before any HTTP traffic exists to inspect. Learners who understand how a domain resolves to a server *before* they open the Network tab will immediately understand what the "DNS Lookup" phase of a waterfall chart represents, rather than encountering it as an unexplained colored bar.
